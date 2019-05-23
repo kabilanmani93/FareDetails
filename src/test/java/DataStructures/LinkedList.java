@@ -117,6 +117,27 @@ public class LinkedList
 		}		
 	}
 	
+	//cycle
+	public boolean hashCycle(Node head)
+	{
+		if(head==null) return false;
+		
+		
+		Node slow = head;
+		Node fast= head.next; // if both starts at same point then it will be true in while loop
+		
+		while(fast!=null && fast.next != null)
+		{
+			if(slow==fast)return true;		
+			
+			fast = fast.next.next;
+			slow = slow.next;
+							
+		}
+		return false;
+				
+	}
+	
 	
 	
 	public static void main(String[] args) {
@@ -133,12 +154,15 @@ public class LinkedList
      second.next=third;
      third.next =fourth;
      fourth.next=fifth;
+     //fifth.next = second;
 
-     lList.printlist();     
+     //lList.printlist();     
      
-     lList.printmiddle();
-     lList.printmiddle_traversing();
-
+     //lList.printmiddle();
+    // lList.printmiddle_traversing();
+     
+     Boolean value =  lList.hashCycle(lList.head);
+    System.out.println("Does loop exist ; " +  value);
 	}
 
 }
