@@ -1,0 +1,8 @@
+test-output
+target
+.project
+.classpath
+.settings
+Screenshots/
+ExtentReport/
+src/test/resources/logs/

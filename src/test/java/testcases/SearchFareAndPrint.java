@@ -3,13 +3,11 @@ package testcases;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -22,14 +20,11 @@ import com.aventstack.extentreports.ExtentReporter;
 //import com.relevantcodes.extentreports.ExtentTest;
 //import com.relevantcodes.extentreports.LogStatus;
 
-import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
-import JavaPrograms.Sorting;
 import dataProvider.ReportDataProvider;
 import factory.BrowserFactory;
 import factory.DataProviderFactory;
@@ -96,14 +91,14 @@ public class SearchFareAndPrint
 		
 		
 		ListPage FaresList = PageFactory.initElements(driver, ListPage.class);
-		Map<String, List<String>> map = new HashMap<String, List<String>>();
+		HashMap<String, List<ListPage.FareDetails>> map = new HashMap<String, List<ListPage.FareDetails>>();
 		
 		//Departure List
 		map = FaresList.Fetch_Depature_FlightFares();
-		for (Map.Entry<String, List<String>> entry : map.entrySet()) 
+		for (Entry<String, List<ListPage.FareDetails>> entry : map.entrySet())
         {
             String key = entry.getKey();
-            List<String> values = entry.getValue();
+            List<ListPage.FareDetails> values = entry.getValue();
             System.out.println("Key = " + key + " , " + "Values = " + values + "n");
             
         }

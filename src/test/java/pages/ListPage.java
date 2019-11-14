@@ -6,16 +6,11 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.Table;
 
 
 public class ListPage 
@@ -41,11 +36,12 @@ public class ListPage
 	final String Rates_path ="/div[contains(@class,'hidden-xs visible-stb')]/div[4]//following-sibling :: p";
 
 	//functions
-	public HashMap<String, List<String>>  Fetch_Depature_FlightFares()
+	public HashMap<String, List<FareDetails>>  Fetch_Depature_FlightFares()
 	{
 		List<WebElement> rows = driver.findElements(By.xpath(Dep_LeftSideList_Panel_NoofRecords));
-		HashMap<String, List<String>> map = new HashMap<String, List<String>>();
+		HashMap<String, List<FareDetails>> map = new HashMap<String, List<FareDetails>>();
 		FareDetails[] fareDetails = new FareDetails[rows.size()];
+		List<FareDetails> list_fareDetails = new ArrayList<FareDetails>();
 		
 		for (int i=0,j=0 ; i<rows.size(); i++,j++)
 		{
@@ -63,9 +59,11 @@ public class ListPage
 		   */
 		   
 		   //array of objects		   
-		   fareDetails[i]= new FareDetails(SerialNo,Daparture_FlightName,Daparture_Fligh_DeptTime,Daparture_FlightArrivTime,Daparture_FlightRate);
+		   //fareDetails[i]= new FareDetails(SerialNo,Daparture_FlightName,Daparture_Fligh_DeptTime,Daparture_FlightArrivTime,Daparture_FlightRate);
+			list_fareDetails.add(new FareDetails(SerialNo,Daparture_FlightName,Daparture_Fligh_DeptTime,Daparture_FlightArrivTime,Daparture_FlightRate));
 		   //System.out.println(fareDetails[i].getFlightName());   
-		   
+
+
 		   //list
 		   List<String> object = new LinkedList<String>(); 
 		   object.add(Daparture_FlightName); 
@@ -74,7 +72,7 @@ public class ListPage
 		   object.add(Daparture_FlightRate);
 		   		   
 		   //map		   
-		   map.put("Dept_Fare_"+j, object);		   
+		   map.put("Dept_Fare_"+j, list_fareDetails);
 		   
 		}
 		
@@ -169,6 +167,8 @@ public class ListPage
 			
 			//descending order
 			return compareSerialNumber - this.Sno;
+
+			//return compareSerial.getFlightName().equals(this.getFlightName())
 			
 		}
 		
