@@ -18,6 +18,9 @@ import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
+//What you get after get(baseQUARL).then()... is a ValidatableResponse,
+//you can try and use get(baseQAURL).then().extract().response()
+//to get a Response object back
 
 
 public class APITest 
