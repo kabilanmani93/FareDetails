@@ -10,17 +10,27 @@ class MergeSort
 	{ 
 		// Find sizes of two subarrays to be merged 
 		int n1 = m - l + 1; 
-		int n2 = r - m; 
+		int n2 = r - m;
+
+		System.out.println("Value of n1 and n2 : " + n1 + " " + n2 +"********************************");
 
 		/* Create temp arrays */
 		int L[] = new int [n1]; 
 		int R[] = new int [n2]; 
 
 		/*Copy data to temp arrays*/
-		for (int i=0; i<n1; ++i) 
-			L[i] = arr[l + i]; 
-		for (int j=0; j<n2; ++j) 
-			R[j] = arr[m + 1+ j]; 
+        System.out.print("L[i] = ");
+		for (int i=0; i<n1; ++i) {
+            L[i] = arr[l + i];
+            System.out.print(L[i] + " ");
+        }
+		System.out.println();
+        System.out.print("R[j] = ");
+		for (int j=0; j<n2; ++j) {
+            R[j] = arr[m + 1 + j];
+            System.out.print(R[j] + " ");
+        }
+        System.out.println();
 
 
 		/* Merge the temp arrays */
@@ -67,16 +77,25 @@ class MergeSort
 	void sort(int arr[], int l, int r) 
 	{ 
 		if (l < r) 
-		{ 
-			// Find the middle point 
-			int m = (l+r)/2; 
+		{
+            //System.out.println("sort called");
+			// Find the middle point
 
-			// Sort first and second halves 
-			sort(arr, l, m); 
-			sort(arr , m+1, r); 
+			int m = (l+r)/2;
+            System.out.println("**************************************Mid Point:  " + l + " to " + r + "=> partition: " + m + "*************************************");
 
-			// Merge the sorted halves 
-			merge(arr, l, m, r); 
+			// Sort first and second halves
+            System.out.println("1st merge sort :  " + l + " to " + m);
+			sort(arr, l, m);
+            System.out.println("2nd recursive merge mid from, " + (m+1) + " to " + r );
+			sort(arr , m+1, r);
+            System.out.println("2nd recursive merge mid from, " + (m+1) + " to " + r );
+
+			// Merge the sorted halves
+            System.out.println("(((((((((((((((((((((((((((Merge Method Called" + " l---> " +l+" m----->"+ m+ " r----->  "+ r + "))))))))))))");
+			merge(arr, l, m, r);
+
+            System.out.println( "--------------------------------------------------------------------------------------------------------------------------------------------------" );
 		} 
 	} 
 
@@ -92,7 +111,7 @@ class MergeSort
 	// Driver method 
 	public static void main(String args[]) 
 	{ 
-		int arr[] = {12, 11, 13, 5, 6, 7}; 
+		int arr[] = {38,27,43,3,9,82,10};
 
 		System.out.println("Given Array"); 
 		printArray(arr); 
