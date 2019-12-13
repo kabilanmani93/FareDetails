@@ -46,12 +46,16 @@ class QuickSort
 		{ 
 			/* pi is partitioning index, arr[pi] is 
 			now at right place */
+
 			int pi = partition(arr, low, high);
 
-
+			System.out.println("partition from, " + low + " to " + high + "=> partition: " + pi);
 			// Recursively sort elements before 
 			// partition and after partition 
-			sort(arr, low, pi-1); 
+			sort(arr, low, pi-1);
+
+            System.out.println("2nd recursive partition from, " + low + " to " + high + "=> partition: " + pi);
+
 			sort(arr, pi+1, high); 
 		} 
 	} 
@@ -68,7 +72,7 @@ class QuickSort
 	// Driver program 
 	public static void main(String args[]) 
 	{ 
-		int arr[] = {2,10, 7, 8, 9, 1, 5};
+		int arr[] = {5,91,93,6,85,95,96,78,82,90};
 		int n = arr.length; 
 
 		QuickSort ob = new QuickSort(); 
