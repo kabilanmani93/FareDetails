@@ -46,7 +46,8 @@ class QuickSort
 		{ 
 			/* pi is partitioning index, arr[pi] is 
 			now at right place */
-			int pi = partition(arr, low, high); 
+			int pi = partition(arr, low, high);
+
 
 			// Recursively sort elements before 
 			// partition and after partition 
