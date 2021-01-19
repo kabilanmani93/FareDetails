@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class CountDuplicate
+public class CountOccurrence
 {
 	public static void main(String[] args) 
 	{
@@ -20,7 +20,7 @@ public class CountDuplicate
 		list.add("a");
 		list.add(2,"a");
 		list.add(2,"g");
-		System.out.println(list.get(5));
+		System.out.println(list.get(0)+" "+list.get(1)+" "+list.get(2)+" "+list.get(3)+" "+list.get(4));
 		
 		List<String> list1 = new ArrayList<String>();
 		list1.add("a");
@@ -32,7 +32,7 @@ public class CountDuplicate
 		list1.add("a");
 		list1.add(2,"a");
 		list1.add(2,"g");
-		System.out.println(list1.get(0));
+		System.out.println(list1.get(0)+" "+list1.get(1)+" "+list1.get(2)+" "+list1.get(3)+" "+list1.get(4));
 		
 		String[] inputvalue = new String[]{"a","b","b","a","c"};
 		//String[] input = [a,b,c,d,e,f,g,h,j,hh];

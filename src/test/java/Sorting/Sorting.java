@@ -1,4 +1,4 @@
-package JavaPrograms;
+package Sorting;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -15,13 +15,11 @@ public class Sorting {
 	{
 	   int arr[] = {64, 34, 25, 12, 22, 11, 90}; 
        Sorting ob = new Sorting();
-       ob.BubbleSort(arr);       
-       System.out.println("The sorted array is : ");
+       ob.BubbleSort(arr);
        ob.printArray(arr);
        
        int arrInsertion[] = {64, 34, 25, 12, 22, 11, 90}; 
        ob.InsertionSort(arrInsertion);
-       System.out.println("\n The sorted array is : ");
        ob.printArray(arrInsertion);
        
        PropertyConfigurator.configure(path);
@@ -41,7 +39,8 @@ public class Sorting {
 	void printArray(int arr[])	
 	{
 		int n= arr.length;
-		for(int i =0; i<n-1; i++)
+		System.out.println("The sorted array is : ");
+		for(int i =0; i<n; i++)
 			System.out.print(arr[i] + " ");
 	}
 	
@@ -49,6 +48,7 @@ public class Sorting {
    void BubbleSort (int arr[])
 	{
 		int n= arr.length;
+		System.out.println(n);
 		
 		for(int i= 0;i<n-1; i++)
 		{
@@ -56,9 +56,7 @@ public class Sorting {
 			{
 				if(arr[j] > arr[j+1])
 				{
-					int temp = arr[j];
-					arr[j] = arr[j+1];
-					arr[j+1]= temp;
+					swap(arr, j ,j+1);
 				}
 			}
 		}
@@ -81,5 +79,13 @@ public class Sorting {
 		   arr[j+1] = key;
 	   }
    }
+
+   //swap
+	private void swap (int[] arr, int index1, int index2)
+	{
+		int temp = arr[index1];
+		arr[index1] = arr[index2];
+		arr[index2] = temp;
+	}
 
 }

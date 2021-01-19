@@ -23,7 +23,8 @@ public static void main(String[] args) throws Exception
 		JSONParser parser = new JSONParser();
 		FileReader fname = new FileReader("JSON/JSONExample.json");		
 		Object obj =  parser.parse(fname);
-		
+
+
 		//typecast obj to json object
 		JSONObject jo = (JSONObject) obj;
 		
@@ -35,14 +36,21 @@ public static void main(String[] args) throws Exception
 	    System.out.println(lastName); 
 	    
 	    //get Address {ke1: val1, key 2 , val 2}
-	    Map<String, Object> address = (Map<String, Object>) jo.get("address");	    
-	    Iterator<Entry<String, Object>> itr1 = address.entrySet().iterator(); 
+	    Map<String, Object> address = (Map<String, Object>) jo.get("address");
+
+	    //foreach
+	    for(Map.Entry<String, Object> map : address.entrySet())
+		{
+			System.out.println(map.getKey() + " : " + map.getValue());
+		}
+
+		//Iterator
+	    Iterator itr1 = address.entrySet().iterator();
         while (itr1.hasNext())
         { 
-            Entry<String, Object> pair = itr1.next(); 
+            Entry<String, Object> pair = (Entry<String, Object>) itr1.next();
             System.out.println(pair.getKey() + " : " + pair.getValue()); 
-        } 
-	    
+        }
        
         //PhoneNumbers
         JSONArray ja = (JSONArray) jo.get("phoneNumbers");

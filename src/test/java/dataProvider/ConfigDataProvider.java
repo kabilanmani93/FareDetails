@@ -2,6 +2,7 @@ package dataProvider;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Properties;
 
 
@@ -16,9 +17,11 @@ public class ConfigDataProvider
 				
 		try
 		{
-			FileInputStream fis = new FileInputStream(src);			
+			FileInputStream fis = new FileInputStream(src);
+
 			pro = new Properties();
 			pro.load(fis);
+
 		}
 		catch (Exception e)
 		{

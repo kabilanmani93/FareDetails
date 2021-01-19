@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
+import factory.TestBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -35,7 +36,7 @@ import utility.Helper;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-public class SearchFareAndPrint
+public class SearchFareAndPrint extends TestBase
 {
 	 ExtentHtmlReporter htmlreports;
 	 ExtentReporter report;
@@ -47,7 +48,8 @@ public class SearchFareAndPrint
 	//ExtentTest Extent_logger;
 	
 	static Logger logger = Logger.getLogger(SearchFareAndPrint.class);
-	static String log4jpath = DataProviderFactory.getConfig().getLog4jPath();
+	static String log4jpath = config.getLog4jPath();
+
 
 	
 	@BeforeClass
@@ -57,6 +59,8 @@ public class SearchFareAndPrint
 		//logger = report.startTest("Verify Login Page","This Page will verify the Profile img after login");
 		PropertyConfigurator.configure(log4jpath);
 	    logger.info("Log4j Faredetails");
+
+
 		
 		Extent_logger = DataProviderFactory.getReport().startReport("MakeMyTrip", "Shall capture the fare details");
 						

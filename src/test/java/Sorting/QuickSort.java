@@ -1,4 +1,4 @@
-package JavaPrograms;
+package Sorting;
 
 // Java program for implementation of QuickSort
 class QuickSort 

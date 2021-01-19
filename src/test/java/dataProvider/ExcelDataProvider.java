@@ -31,9 +31,7 @@ public class ExcelDataProvider
 	{
 		return wb;
 		
-	} 
-	
-
+	}
 	
 	public String getData(String SheetName, int row,int col)
 	{
